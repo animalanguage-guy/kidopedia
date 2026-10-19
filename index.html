@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kidopedia — Детская Энциклопедия</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Шапка сайта -->
+    <header>
+        <h1>🐱 Kidopedia 📚</h1>
+        <button id="admin-btn">Вход для автора</button>
+    </header>
+
+    <!-- Панель администратора (ввод GitHub токена) -->
+    <div id="admin-panel" class="hidden">
+        <input type="password" id="gh-token" placeholder="Введите GitHub Token">
+        <button id="save-token-btn">Сохранить токен</button>
+    </div>
+
+    <!-- Основной контент -->
+    <main>
+        <!-- Левый сайдбар со списком статей -->
+        <aside id="articles-list">
+            <h3>Все статьи</h3>
+            <button id="create-btn" class="hidden">➕ Создать статью</button>
+            <ul id="list-container">
+                <!-- Сюда JavaScript автоматически добавит список статей -->
+            </ul>
+        </aside>
+
+        <!-- Правая часть: чтение или создание/редактирование -->
+        <section id="content-area">
+            
+            <!-- Режим просмотра статьи (активен по умолчанию) -->
+            <div id="view-mode">
+                <h2 id="article-title">Добро пожаловать в Kidopedia!</h2>
+                <div id="article-content">
+                    Выберите статью в меню слева, чтобы начать увлекательное чтение.
+                </div>
+                <!-- Кнопки управления (доступны только автору) -->
+                <div id="article-actions" class="hidden">
+                    <button id="edit-act-btn">✏️ Редактировать</button>
+                    <button id="delete-act-btn" class="danger">🗑️ Удалить</button>
+                </div>
+            </div>
+
+            <!-- Режим создания и редактирования статьи (скрыт по умолчанию) -->
+            <div id="edit-mode" class="hidden">
+                <h2 id="form-title">Новая статья</h2>
+                
+                <label for="edit-title">Название статьи:</label>
+                <input type="text" id="edit-title" placeholder="Например: Почему небо синее?">
+                
+                <label for="edit-category">Категория:</label>
+                <input type="text" id="edit-category" placeholder="Например: Космос или Природа">
+                
+                <label for="edit-content">Текст статьи:</label>
+                <textarea id="edit-content" placeholder="Напиши здесь что-то очень интересное простыми словами..."></textarea>
+                
+                <!-- Кнопки сохранения/отмены формы -->
+                <div class="form-buttons">
+                    <button id="save-art-btn" class="success">💾 Сохранить статью</button>
+                    <button id="cancel-edit-btn">Отмена</button>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Главный JS-модуль, который запускает всю энциклопедию -->
+    <script type="module" src="app.js"></script>
+</body>
+</html>
