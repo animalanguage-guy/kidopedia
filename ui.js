@@ -22,12 +22,13 @@ export function toggleAdminPanel() {
 }
 
 // Настройка кнопок под роль (Автор или Читатель)
+// Исправленный кусочек в ui.js
 export function updateAuthUI(hasToken) {
     if (hasToken) {
         DOM.createBtn().classList.remove('hidden');
         DOM.actionButtons().classList.remove('hidden');
         DOM.adminBtn().innerText = '🔒 Выйти / Изменить токен';
-    } {
+    } else { // <- Вот тут обязательно должно быть слово else!
         DOM.createBtn().classList.add('hidden');
         DOM.actionButtons().classList.add('hidden');
         DOM.adminBtn().innerText = 'Вход для автора';
