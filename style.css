@@ -1,0 +1,264 @@
+/* style.css */
+
+/* --- 1. Общие настройки и шрифты --- */
+@import url('https://googleapis.com');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif; /* Мягкий округлый "детский" шрифт */
+}
+
+body {
+    background-color: #f0f7ff; /* Нежно-голубой фон */
+    color: #2c3e50;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- 2. Шапка (Header) --- */
+header {
+    background: linear-gradient(135deg, #ff7675, #6c5ce7); /* Яркий градиент */
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+/* --- 3. Главная рабочая область (Сайдбар + Контент) --- */
+main {
+    flex: 1;
+    display: flex;
+    max-width: 1400px;
+    width: 100%;
+    margin: 20px auto;
+    padding: 0 20px;
+    gap: 20px;
+}
+
+/* Левая колонка (Список статей) */
+#articles-list {
+    flex: 1;
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 24px rgba(108, 92, 231, 0.05);
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+}
+
+#articles-list h3 {
+    font-size: 20px;
+    color: #6c5ce7;
+    margin-bottom: 15px;
+    border-bottom: 2px dashed #e0e0e0;
+    padding-bottom: 8px;
+}
+
+#list-container {
+    list-style: none;
+}
+
+#list-container li {
+    margin-bottom: 10px;
+}
+
+#list-container li a {
+    display: block;
+    padding: 12px 15px;
+    background-color: #f8f9fa;
+    color: #333;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+#list-container li a:hover {
+    background-color: #ffeaa7; /* Подсветка при наведении */
+    border-color: #fdcb6e;
+    transform: translateX(5px);
+}
+
+/* Правая колонка (Просмотр / Редактирование) */
+#content-area {
+    flex: 3;
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 8px 24px rgba(108, 92, 231, 0.05);
+    min-height: 400px;
+}
+
+/* --- 4. Стили текста статьи --- */
+#article-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #2d3436;
+    margin-bottom: 10px;
+}
+
+#article-content {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #4a4a4a;
+    margin-top: 20px;
+}
+
+#article-content hr {
+    border: none;
+    border-top: 2px dashed #dfe6e9;
+    margin: 15px 0;
+}
+
+/* --- 5. Кнопки и Формы --- */
+button {
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 50px; /* Круглые "мультяшные" кнопки */
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #dfe6e9;
+    color: #2d3436;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Цветовые схемы кнопок */
+#admin-btn {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid white;
+}
+#admin-btn:hover { background-color: white; color: #6c5ce7; }
+
+#create-btn {
+    width: 100%;
+    margin-bottom: 15px;
+    background-color: #00b894;
+    color: white;
+    justify-content: center;
+}
+#create-btn:hover { background-color: #55efc4; }
+
+.success { background-color: #00b894; color: white; }
+.success:hover { background-color: #55efc4; }
+
+.danger { background-color: #d63031; color: white; }
+.danger:hover { background-color: #ff7675; }
+
+#article-actions {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px dashed #dfe6e9;
+    display: flex;
+    gap: 10px;
+}
+
+/* Панель администратора (Токен) */
+#admin-panel {
+    background-color: #ffeaa7;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    border-bottom: 2px solid #fdcb6e;
+    align-items: center;
+}
+
+#admin-panel input[type="password"] {
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 2px solid #fdcb6e;
+    width: 300px;
+    font-size: 16px;
+}
+
+/* Поля ввода в форме редактирования */
+#edit-mode label {
+    display: block;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #6c5ce7;
+}
+
+#edit-mode input[type="text"], #edit-mode textarea {
+    width: 100%;
+    padding: 12px 18px;
+    border: 2px solid #dfe6e9;
+    border-radius: 15px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#edit-mode input[type="text"]:focus, #edit-mode textarea:focus {
+    border-color: #6c5ce7;
+}
+
+#edit-mode textarea {
+    min-height: 200px;
+    resize: vertical;
+}
+
+.form-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+/* --- 6. Служебные классы --- */
+.hidden {
+    display: none !important;
+}
+
+.empty {
+    text-align: center;
+    color: #b2bec3;
+    padding: 20px;
+    font-style: italic;
+}
+
+/* --- 7. Адаптивность для телефонов --- */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        padding: 0 10px;
+    }
+    #articles-list {
+        max-height: 250px;
+    }
+    header h1 {
+        font-size: 20px;
+    }
+    #admin-panel {
+        flex-direction: column;
+        gap: 10px;
+    }
+    #admin-panel input[type="password"] {
+        width: 100%;
+    }
+}
